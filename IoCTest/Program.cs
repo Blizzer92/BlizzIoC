@@ -10,12 +10,9 @@ namespace IoCTest
     {
         static void Main(string[] args)
         {
-            Assembly dll = Assembly.LoadFile(@"C:\Users\svenj\source\repos\IoCTest\IoCTest\bin\Debug\netcoreapp3.1\SQLAccess.dll");
-            string typeNameNew = (dll?.DefinedTypes).FirstOrDefault(x => x.FullName != null && x.FullName.Contains("UserAccess"))?.FullName;
-            Type viewType = dll?.GetType(typeNameNew ?? string.Empty);
-            IDataAccsses dataAccsses = (IDataAccsses)Activator.CreateInstance(viewType!);
+            string test = Settings.Settings.Configuration["IDataAccsses"];
 
-            User user = new User(dataAccsses);
+            User user = IoC.IoC.Resolve<User>(test);
 
             Console.WriteLine(user.GetUserName());
             Console.ReadKey();
