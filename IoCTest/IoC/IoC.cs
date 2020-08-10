@@ -11,7 +11,7 @@ namespace IoC
         public static T Resolve<T>(string name)
         {
             Assembly accsses = Assembly.LoadFile(
-                $@"C:\Users\svenj\source\repos\IoCTest\IoCTest\bin\Debug\netcoreapp3.1\{name}.dll");
+                $@"C:\Users\sjuette\RiderProjects\ioctest\IoCTest\bin\Debug\netcoreapp3.1\{name}.dll");
 
 
             Type targetType = typeof(T);
@@ -22,13 +22,13 @@ namespace IoC
             {
                 foreach (Type type in accssesTypes)
                 {
-                    ParameterInfo[] blub = constructorInfo.GetParameters();
+                    ParameterInfo[] constructorParameter = constructorInfo.GetParameters();
 
-                    foreach (ParameterInfo parameterInfo in blub)
+                    foreach (ParameterInfo parameterInfo in constructorParameter)
                     {
                         if (parameterInfo.ParameterType == type.GetInterface(parameterInfo.ParameterType.Name))
                         {
-                            dataAccsses = (T)Activator.CreateInstance(typeof(T),type!);
+                            dataAccsses = (T)Activator.CreateInstance(typeof(T), Activator.CreateInstance(type!));
                             return dataAccsses;
                         }
                     }

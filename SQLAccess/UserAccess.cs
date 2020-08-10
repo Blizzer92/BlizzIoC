@@ -2,7 +2,7 @@
 
 namespace SQLAccess
 {
-    public class UserAccess : IDataAccsses
+    public class UserAccess : IUserAccess
     {
         public UserAccess()
         {

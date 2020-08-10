@@ -1,6 +1,6 @@
 ﻿namespace Interfaces
 {
-    public interface IDataAccsses
+    public interface IUserAccess
     {
         string GetUserName();
     }

@@ -4,10 +4,10 @@ namespace IoCTest
 {
     public class User
     {
-        private IDataAccsses access;
+        private IUserAccess access;
 
 
-        public User(IDataAccsses dbAccess)
+        public User(IUserAccess dbAccess)
         {
             this.access = dbAccess;
         }
