@@ -15,16 +15,16 @@ namespace IoC
 
 
             Type targetType = typeof(T);
-            ConstructorInfo[] constructor = targetType.GetConstructors();
+            ConstructorInfo[] constructors = targetType.GetConstructors();
             Type[] accssesTypes = accsses.GetTypes();
             T dataAccsses = default(T);
-            foreach (ConstructorInfo constructorInfo in constructor)
+            foreach (ConstructorInfo constructor in constructors)
             {
-                foreach (Type type in accssesTypes)
-                {
-                    ParameterInfo[] constructorParameter = constructorInfo.GetParameters();
+                ParameterInfo[] constructorParameters = constructor.GetParameters();
 
-                    foreach (ParameterInfo parameterInfo in constructorParameter)
+                foreach (ParameterInfo parameterInfo in constructorParameters)
+                {
+                    foreach (Type type in accssesTypes)
                     {
                         if (parameterInfo.ParameterType == type.GetInterface(parameterInfo.ParameterType.Name))
                         {
