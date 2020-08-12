@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLAccess", "SQLAccess\SQLAccess.csproj", "{63D09FA9-AC46-4B09-814F-F43F455C6527}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCTests", "IoCTests\IoCTests.csproj", "{5E0DF8F1-A26D-45FC-9B13-D7F370BAD76C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{63D09FA9-AC46-4B09-814F-F43F455C6527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63D09FA9-AC46-4B09-814F-F43F455C6527}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63D09FA9-AC46-4B09-814F-F43F455C6527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E0DF8F1-A26D-45FC-9B13-D7F370BAD76C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E0DF8F1-A26D-45FC-9B13-D7F370BAD76C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E0DF8F1-A26D-45FC-9B13-D7F370BAD76C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E0DF8F1-A26D-45FC-9B13-D7F370BAD76C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

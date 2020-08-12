@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using Interfaces;
+using IoC;
 
 namespace IoCTest
 {
@@ -10,12 +7,12 @@ namespace IoCTest
     {
         static void Main(string[] args)
         {
-            string test = Settings.Settings.Configuration["Scope"];
+            string test = Settings.Configuration["Scope"];
+            
+            IoCResolver ioc = new IoCResolver(test);
+            User user = ioc.Resolve<User>();
+            Money money = ioc.Resolve<Money>();
 
-            User user = IoC.IoC.Resolve<User>(test);
-            Money money = IoC.IoC.Resolve<Money>(test);
-            
-            
             Console.WriteLine(user.GetUserName());
             Console.WriteLine(money.GetMoney());
             Console.ReadKey();

@@ -1,42 +1,47 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Reflection;
-using Interfaces;
-using IoCTest;
 
 namespace IoC
 {
-    public class IoC
+    public class IoCResolver
     {
-        public static T Resolve<T>(string name)
+        private Dictionary<string,Type> interfaces = new Dictionary<string, Type>();
+
+        public IoCResolver(string assembly)
         {
             Assembly accsses = Assembly.LoadFile(
-                $@"C:\Users\sjuette\RiderProjects\ioctest\IoCTest\bin\Debug\netcoreapp3.1\{name}.dll");
-
-
+                $@"C:\Users\sjuette\RiderProjects\ioctest\IoCTest\bin\Debug\netcoreapp3.1\{assembly}.dll");
+            
+            Type[] accssesTypes = accsses.GetTypes();
+            foreach (Type accssesType in accssesTypes)
+            {
+                foreach (Type @interface in accssesType.GetInterfaces())
+                {
+                    this.interfaces.Add(@interface.Name, accssesType);
+                }
+            }
+        }
+        
+        public T Resolve<T>()
+        {
             Type targetType = typeof(T);
             ConstructorInfo[] constructors = targetType.GetConstructors();
-            Type[] accssesTypes = accsses.GetTypes();
-            T dataAccsses = default(T);
+            T dataAccsses = default;
             foreach (ConstructorInfo constructor in constructors)
             {
                 ParameterInfo[] constructorParameters = constructor.GetParameters();
+                object[] argarray = new object[constructorParameters.Length];
 
-                foreach (ParameterInfo parameterInfo in constructorParameters)
+                for (int i = 0; i < constructorParameters.Length; i++)
                 {
-                    foreach (Type type in accssesTypes)
-                    {
-                        if (parameterInfo.ParameterType == type.GetInterface(parameterInfo.ParameterType.Name))
-                        {
-                            dataAccsses = (T)Activator.CreateInstance(typeof(T), Activator.CreateInstance(type!));
-                            return dataAccsses;
-                        }
-                    }
+                    argarray[i] = Activator.CreateInstance(this.interfaces[constructorParameters[i].ParameterType.Name]);
                 }
+                dataAccsses = (T)Activator.CreateInstance(typeof(T), argarray);
+                return dataAccsses;
             }
 
             return dataAccsses;
-
         }
     }
 }
