@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>    
+    <id>BlizzIoC</id>
+    <version>0.0.1</version>
+    <title>A fast and simple IoC Container</title>
+    <authors>Sven Jütte</authors>
+    <owners></owners>
+    <licenseUrl></licenseUrl>
+    <projectUrl></projectUrl>
+    <iconUrl></iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description></description>
+    <releaseNotes></releaseNotes>
+    <copyright></copyright>
+    <tags></tags>
+    <summary></summary>
+  </metadata>
+</package>

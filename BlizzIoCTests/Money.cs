@@ -1,6 +1,6 @@
 ﻿using Interfaces;
 
-namespace IoCTest
+namespace BlizzIoCTests
 {
     public class Money : IMoneyAccess
     {

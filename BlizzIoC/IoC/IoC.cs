@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace IoC
+namespace BlizzIoC
 {
     public class IoCResolver
     {

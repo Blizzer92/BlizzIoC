@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace IoCTest
+namespace BlizzIoCTests
 {
     public class Settings
     {
