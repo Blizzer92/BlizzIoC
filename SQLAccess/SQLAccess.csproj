@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="copy &quot;$(TargetDir)SQLAccess.dll&quot; &quot;$(SolutionDir)BlizzIoCTests\$(OutDir)SQLAccess.dll&quot;" />
+    <Exec Command="xcopy &quot;$(TargetDir)SQLAccess.dll&quot; &quot;$(SolutionDir)BlizzIoCTests\$(OutDir)SQLAccess.dll&quot;  /i /d /y /k" />
   </Target>
 
 </Project>
