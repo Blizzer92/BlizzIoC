@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using BlizzIoC;
 using NUnit.Framework;
 
@@ -37,15 +39,29 @@ namespace BlizzIoCTests
 
         public static string GetAbsolutPath(string relativPath)
         {
-            List<string> locationSplit =
-                System.Reflection.Assembly.GetExecutingAssembly().Location
+            List<string> locationSplit = new List<string>();
+
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                locationSplit = System.Reflection.Assembly.GetExecutingAssembly().Location
+                    .Split("\\")
+                    .Reverse()
+                    .Reverse()
+                    .ToList();
+            }
+            else
+            {
+                locationSplit = System.Reflection.Assembly.GetExecutingAssembly().Location
                     .Split("\\")
                     .Reverse()
                     .Skip(1)
                     .Reverse()
                     .ToList();
-            //locationSplit.Add(relLocation);
-            return $"{String.Join("\\", locationSplit)}\\{relativPath}";
+            }
+
+            string path = $"{String.Join("\\", locationSplit)}\\{relativPath}";
+            return path;
         }
 
     }
