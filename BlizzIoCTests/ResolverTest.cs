@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using BlizzIoC;
 using NUnit.Framework;
@@ -45,7 +46,11 @@ namespace BlizzIoCTests
                     .Reverse()
                     .ToList();
             //locationSplit.Add(relLocation);
-            return $"{String.Join("\\", locationSplit)}\\{relativPath}";
+
+            string path = $"{String.Join("\\", locationSplit)}\\{relativPath}";
+            Debug.WriteLine(path);
+            Trace.WriteLine(path);
+            return path;
         }
 
     }
