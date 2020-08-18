@@ -8,8 +8,11 @@
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
 
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy &quot;$(TargetDir)SQLAccess.dll&quot; &quot;$(SolutionDir)BlizzIoCTests\$(OutDir)SQLAccess.dll&quot;  /i /d /y /k" />
+  <Target Name="CopyFiles" AfterTargets="Build">
+    <Copy
+      SourceFiles="$(TargetDir)SQLAccess.dll"
+      DestinationFolder="$(SolutionDir)BlizzIoCTests\$(OutDir)"
+      SkipUnchangedFiles="True" />
   </Target>
 
 </Project>
