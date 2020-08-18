@@ -27,4 +27,11 @@
       </None>
     </ItemGroup>
 
+  <Target Name="CopyFiles" AfterTargets="Build">
+    <Copy
+      SourceFiles="$(SolutionDir)SQLAccess\$(OutDir)SQLAccess.dll"
+      DestinationFolder="$(SolutionDir)BlizzIoCTests\$(OutDir)"
+      SkipUnchangedFiles="True" />
+  </Target>
+
 </Project>

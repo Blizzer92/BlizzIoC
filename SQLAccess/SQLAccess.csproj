@@ -8,11 +8,6 @@
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
 
-  <Target Name="CopyFiles" AfterTargets="Build">
-    <Copy
-      SourceFiles="$(TargetDir)SQLAccess.dll"
-      DestinationFolder="$(SolutionDir)BlizzIoCTests\$(OutDir)"
-      SkipUnchangedFiles="True" />
-  </Target>
+
 
 </Project>
