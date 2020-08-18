@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetDir)SQLAccess.dll&quot; &quot;$(SolutionDir)BlizzIoCTests\$(OutDir)SQLAccess.dll&quot;" />
+  </Target>
+
 </Project>
