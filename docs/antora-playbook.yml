@@ -1,7 +1,6 @@
 ﻿site:
   title: BlizzIoC
   start_page: BlizzIoC::index.adoc
-  name: BlizzIoC
 content:
   sources:
     - url: https://github.com/Blizzer92/BlizzIoC.git
